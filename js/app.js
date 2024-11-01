@@ -33,6 +33,10 @@ export function displayTask(task) {
     toggleTaskCompletion(task.id); // Toggle the completion status in IndexedDB
   };
 
+  taskRow.querySelector(".task-content").onclick = function () {
+    toggleTaskCompletion(task.id); // Toggle the completion status in IndexedDB
+  };
+
   // Delete task when the delete button is clicked
   taskRow.querySelector(".delete-button").onclick = function () {
     deleteTask(task.id);
