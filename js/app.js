@@ -1,4 +1,9 @@
-import { openDatabase, addTask, deleteTask, toggleTaskCompletion } from "./db.js";
+import {
+  openDatabase,
+  addTask,
+  deleteTask,
+  toggleTaskCompletion,
+} from "./db.js";
 
 // Function to display a task on the page
 export function displayTask(task) {

@@ -130,6 +130,11 @@ body {
   margin-right: 10px;
 }
 
+.checkbox-circle.checked {
+  color: white;
+  background-color: #a0d6b4;
+}
+
 .checkmark {
   font-size: 14px;
   display: none;
@@ -140,8 +145,8 @@ body {
 }
 
 .checkbox-circle.checked .checkmark {
-    display: block;
-  }
+  display: block;
+}
 
 .task-content {
   flex-grow: 1;
