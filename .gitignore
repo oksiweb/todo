@@ -1,0 +1,8 @@
+# Node modules directory
+node_modules/
+
+# Dependency files
+package.json
+package-lock.json
+
+.vscode/

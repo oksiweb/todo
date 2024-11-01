@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>ToDo app</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1 class="title">Todo app</h1>
+      <button class="add-task-button">
+        <span class="icon">+</span>
+        <span class="text">Add Task</span>
+      </button>
+      <div class="task-container">
+        <input class="task-input" placeholder="What are you working on?" />
+        <div class="action-buttons">
+          <button class="cancel-button">Cancel</button>
+          <button class="save-button">Save</button>
+        </div>
+      </div>
+      <div class="tasks-header">
+        <span class="tasks-title">Tasks</span>
+      </div>
+      <div class="header-line"></div>
+      <div class="task-list">
+        <div class="task-row">
+          <div class="checkbox-section">
+            <div class="checkbox-circle">
+              <span class="checkmark">✓</span>
+            </div>
+          </div>
+          <div class="task-content">
+            <span class="task-text">test</span>
+          </div>
+          <div class="task-controls">
+            <button class="options-button">⋮</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/db.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>
