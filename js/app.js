@@ -14,13 +14,13 @@ export function displayTask(task) {
   taskRow.dataset.id = task.id;
 
   // Apply the "checked" class if the task is completed
-  const checkedClass = task.completed ? "checked" : "";
+  const completedClass = task.completed ? "completed" : "";
 
   taskRow.innerHTML = `
-        <div class="checkbox-circle ${checkedClass}">
+        <div class="checkbox-circle ${completedClass}">
             <span class="checkmark">✓</span>
         </div>
-        <div class="task-content">
+        <div class="task-content ${completedClass}">
             <span class="task-text">${task.text}</span>
         </div>
         <div class="task-controls">
