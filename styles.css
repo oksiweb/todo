@@ -57,7 +57,7 @@ body {
   border: none;
   border-radius: 5px;
   background-color: #f5f5f5;
-  color: #cfcfcf;
+  color: black;
   font-style: italic;
   resize: none;
 }
@@ -117,12 +117,6 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.checkbox-section {
-  padding-right: 10px;
-  display: flex;
-  align-items: center;
-}
-
 .checkbox-circle {
   width: 24px;
   height: 24px;
@@ -131,9 +125,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   font-size: 14px;
   color: #7d7d7d;
+  margin-right: 10px;
 }
 
 .checkmark {
@@ -144,6 +138,10 @@ body {
 .checkbox-circle:hover .checkmark {
   display: block;
 }
+
+.checkbox-circle.checked .checkmark {
+    display: block;
+  }
 
 .task-content {
   flex-grow: 1;

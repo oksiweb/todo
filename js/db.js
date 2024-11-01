@@ -57,6 +57,29 @@ export function loadTasks() {
   };
 }
 
+// Function to toggle the completion status of a task
+export function toggleTaskCompletion(taskId) {
+  const transaction = db.transaction(["tasks"], "readwrite");
+  const objectStore = transaction.objectStore("tasks");
+
+  const request = objectStore.get(taskId);
+
+  request.onsuccess = function (event) {
+    const task = event.target.result;
+    if (task) {
+      task.completed = !task.completed; // Toggle the completed status
+      const updateRequest = objectStore.put(task);
+      updateRequest.onsuccess = function () {
+        loadTasks(); // Reload tasks to show updated completion status
+      };
+    }
+  };
+
+  request.onerror = function (event) {
+    console.error("Error fetching task for update:", event.target.errorCode);
+  };
+}
+
 export function deleteTask(taskId) {
   const transaction = db.transaction(["tasks"], "readwrite");
   const objectStore = transaction.objectStore("tasks");

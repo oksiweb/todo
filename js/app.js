@@ -1,4 +1,4 @@
-import { openDatabase, addTask, deleteTask } from "./db.js";
+import { openDatabase, addTask, deleteTask, toggleTaskCompletion } from "./db.js";
 
 // Function to display a task on the page
 export function displayTask(task) {
@@ -8,11 +8,12 @@ export function displayTask(task) {
   taskRow.className = "task-row";
   taskRow.dataset.id = task.id;
 
+  // Apply the "checked" class if the task is completed
+  const checkedClass = task.completed ? "checked" : "";
+
   taskRow.innerHTML = `
-        <div class="checkbox-section">
-            <div class="checkbox-circle">
-                <span class="checkmark">✓</span>
-            </div>
+        <div class="checkbox-circle ${checkedClass}">
+            <span class="checkmark">✓</span>
         </div>
         <div class="task-content">
             <span class="task-text">${task.text}</span>
@@ -21,6 +22,11 @@ export function displayTask(task) {
             <button class="delete-button">Delete</button>
         </div>
     `;
+
+  // Toggle completion status when the checkbox is clicked
+  taskRow.querySelector(".checkbox-circle").onclick = function () {
+    toggleTaskCompletion(task.id); // Toggle the completion status in IndexedDB
+  };
 
   // Delete task when the delete button is clicked
   taskRow.querySelector(".delete-button").onclick = function () {
@@ -41,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.querySelector(".save-button");
   const cancelButton = document.querySelector(".cancel-button");
   const taskInput = document.querySelector(".task-input");
+  const taskList = document.querySelector(".task-list");
 
   // Show the task container and hide the add task button on click
   addTaskButton.addEventListener("click", function () {
