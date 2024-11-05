@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>ToDo app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root">
+      <h1 class="title">Todo app</h1>
+      <button class="add-task-button">
+        <span class="icon">+</span>
+        <span class="text">Add Task</span>
+      </button>
+      <form class="task-container">
+        <input type="text" class="task-title" placeholder="Title" required />
+        <textarea
+          class="task-description"
+          placeholder="Description"
+          required
+        ></textarea>
+        <input type="date" class="task-due-date" required />
+        <div class="action-buttons">
+          <button type="button" class="cancel-button">Cancel</button>
+          <button type="submit" class="save-button">Save</button>
+        </div>
+      </form>
+      <div class="tasks-header">
+        <span class="tasks-title">Tasks</span>
+      </div>
+      <div class="header-line"></div>
+
+      <input
+        type="text"
+        class="task-filter-by-title"
+        placeholder="Filter by title"
+      />
+      <input
+        type="date"
+        class="task-filter-by-date"
+        aria-label="Filter by date"
+      />
+      <div class="task-list"></div>
+    </div>
+    <script src="js/db.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>

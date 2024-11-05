@@ -1,0 +1,299 @@
+:root {
+    --background-color: rgb(186, 73, 73);
+    --title-color: white;
+    --button-background-color: #a84646;
+    --button-text-color: #e2bdbd;
+    --button-border-color: #d79999;
+    --button-hover-background-color: #913c3c;
+    --task-container-background: white;
+    --task-input-background: #f5f5f5;
+    --task-input-text-color: black;
+    --action-button-color: #7d7d7d;
+    --save-button-background: #333;
+    --save-button-text-color: white;
+    --tasks-title-color: #ffffff;
+    --header-line-color: #d79999;
+    --task-row-background: white;
+    --checkbox-background: #e0e0e0;
+    --checkbox-checked-background: #a0d6b4;
+    --checkbox-checked-color: white;
+    --task-text-color: #333;
+    --task-count-color: #a0a0a0;
+    --options-button-color: #a0a0a0;
+    --focus-border-color: #ffc72c;
+    --description-text-color: #666;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    font-family: "Varela Round", sans-serif;
+  }
+  
+  #root {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--title-color);
+    margin: 20px 0;
+  }
+  
+  .add-task-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    padding: 20px;
+    border: 2px dashed var(--button-border-color);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .add-task-button .icon {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  .add-task-button:hover {
+    background-color: var(--button-hover-background-color);
+  }
+  
+  .task-container {
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--task-container-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-title,
+  .task-description,
+  .task-due-date {
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--task-input-text-color);
+    background-color: var(--task-input-background);
+    border: 1px solid var(--button-border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-family: "Varela Round", sans-serif;
+  }
+  
+  .task-title:focus,
+  .task-description:focus,
+  .task-due-date:focus {
+    border-color: var(--focus-border-color);
+  }
+  
+  .task-title {
+    font-weight: bold;
+  }
+  
+  .task-description {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  .task-due-date {
+    color: var(--task-input-text-color);
+    background-color: var(--task-input-background);
+    font-size: 16px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--header-line-color);
+  }
+  
+  .delete-button,
+  .cancel-button,
+  .edit-button {
+    background: none;
+    border: none;
+    color: var(--action-button-color);
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .save-button {
+    background-color: var(--save-button-background);
+    color: var(--save-button-text-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .tasks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+  
+  .tasks-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--tasks-title-color);
+  }
+  
+  .header-line {
+    height: 2px;
+    background-color: var(--header-line-color);
+  }
+  
+  .task-row {
+    display: flex;
+    align-items: center;
+    background-color: var(--task-row-background);
+    padding: 20px 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .task-date {
+    font-size: 12px;
+    color: var(--task-count-color);
+  }
+  
+  .checkbox-circle {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--checkbox-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--action-button-color);
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .checkbox-circle.completed {
+    color: var(--checkbox-checked-color);
+    background-color: var(--checkbox-checked-background);
+  }
+  
+  .checkmark {
+    font-size: 14px;
+    display: none;
+  }
+  
+  .checkbox-circle:hover .checkmark {
+    display: block;
+  }
+  
+  .checkbox-circle.completed .checkmark {
+    display: block;
+  }
+  
+  .task-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  task-content .text {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--task-text-color);
+  }
+  
+  .task-content .description {
+    font-size: 14px;
+    color: var(--description-text-color);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  
+  .task-content .date {
+    font-size: 12px;
+    color: var(--task-count-color);
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+  
+  .task-date {
+    font-size: 12px;
+    color: var(--task-count-color);
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+  
+  .task-controls {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .task-content.completed {
+    text-decoration: line-through;
+  }
+  
+  .task-text {
+    color: var(--task-text-color);
+    font-size: 16px;
+  }
+  
+  .options-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--options-button-color);
+    cursor: pointer;
+  }
+  
+  .task-filter-by-title,
+  .task-filter-by-date {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--button-border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--title-color);
+    background-color: transparent;
+    outline: none;
+    outline-color: var(--focus-border-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .task-filter-by-title::placeholder {
+    color: var(--title-color);
+    opacity: 1;
+  }
+  
+  .task-filter-by-title:focus {
+    border-color: var(--focus-border-color);
+    outline: none;
+  }
+  
+  .task-filter-by-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.8;
+  }
+  
