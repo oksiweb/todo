@@ -6,6 +6,7 @@ import {
   editTask,
   loadTasks,
 } from "./db.js";
+import { sanitizeInput } from "./utils.js";
 
 let editingTaskId = null;
 
@@ -99,9 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
   taskContainer.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const taskText = taskInput.value.trim();
-    const description = taskDescription.value.trim();
-    const date = taskDueDate.value;
+    let taskText = sanitizeInput(taskInput.value.trim());
+    let description = sanitizeInput(taskDescription.value.trim());
+    let date = sanitizeInput(taskDueDate.value);
 
     if (taskText && description && date) {
       if (editingTaskId) {
